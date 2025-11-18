@@ -24,18 +24,29 @@
         /* 封面设计 */
         .cover {
             width: 100%;
-            height: auto;
-            min-height: 60vh;
             background: url('无畏极客封面2.png') top center/100% auto no-repeat;
+            background-color: #ffffff;
             color: white;
             display: flex;
             flex-direction: column;
-            justify-content: flex-start;
+            justify-content: center;
             align-items: center;
             text-align: center;
             position: relative;
+            z-index: 2;
             overflow: hidden;
             padding: 20px;
+            /* 使用padding-bottom技术来保持背景图片比例 */
+            padding-bottom: 141.45%; /* 16:9 比例，可根据实际图片调整 */
+            height: 0;
+        }
+        
+        .cover-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 3;
         }
 
 
@@ -670,6 +681,10 @@
     
     <!-- 封面 -->
     <div class="cover">
+        <div class="cover-content">
+            <h1>第三届无畏极客纺织服装新产品体验活动</h1>
+            <p>测试报告</p>
+        </div>
     </div>
     
     <!-- 正文内容 -->
