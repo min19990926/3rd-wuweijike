@@ -1,0 +1,1898 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第三届无畏极客纺织服装新产品体验活动测试报告</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #ffffff;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* 封面设计 */
+        .cover {
+            height: 100vh;
+            background: url('无畏极客封面2.png') center/cover no-repeat;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            padding: 0 20px;
+        }
+
+
+        .cover-content {
+            position: relative;
+            z-index: 2; /* 确保内容在遮罩之上 */
+        }
+        
+        .cover h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        
+        .cover .title {
+            font-size: 2.8rem;
+            margin-bottom: 2rem;
+            font-weight: 800;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .cover .subtitle {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            font-weight: 300;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .cover .identity {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        
+        .mountain-icon {
+            font-size: 4rem;
+            margin: 2rem 0;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        /* 内容区域 */
+        .content {
+            padding: 3rem 2rem;
+            background: white;
+        }
+        
+        .section {
+            margin-bottom: 3rem;
+        }
+        
+        h1, h2, h3 {
+            color: #1e3c72;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+        
+        h1 {
+            font-size: 2.2rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 3px solid #4a90e2;
+        }
+        
+        h2 {
+            font-size: 1.8rem;
+            padding-left: 1rem;
+            border-left: 4px solid #2a5298;
+        }
+        
+        h3 {
+            font-size: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #e6f0ff;
+        }
+        
+        p {
+            margin-bottom: 1.2rem;
+            text-align: justify;
+        }
+        
+        /* 表格样式 */
+        .table-container {
+            overflow-x: auto;
+            margin: 2rem 0;
+            border-radius: 8px;
+            border: 1px solid #e1e8ed;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+        
+        th {
+            background: #2a5298; /* 使用纯色确保打印效果 */
+            color: white;
+            font-weight: 600;
+            padding: 1rem;
+            text-align: left;
+            border-right: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        th:last-child {
+            border-right: none;
+        }
+        
+        td {
+            padding: 0.9rem 1rem;
+            border-bottom: 1px solid #e1e8ed;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f5f9ff;
+        }
+        
+        /* 图表容器 */
+        .chart-container {
+            background: #f5f9ff; /* 使用纯色确保打印效果 */
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-left: 4px solid #4a90e2;
+            border: 1px solid #e1e8ed;
+        }
+        
+        .chart-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #1e3c72;
+            display: flex;
+            align-items: center;
+        }
+        
+        .chart-title i {
+            margin-right: 0.5rem;
+            color: #4a90e2;
+        }
+        
+        /* 特色框 */
+        .feature-box {
+            background: white;
+            border-radius: 6px;
+            padding: 1rem;
+            margin: 1rem 0;
+            border: 0.5px solid #e1e8ed;
+            border-top: 1px solid #4a90e2;
+        }
+        
+        .feature-title {
+            display: flex;
+            align-items: center;
+            font-size: 1 rem;
+            color: #1e3c72;
+            margin-bottom: 1rem;
+        }
+        
+        .feature-title i {
+            margin-right: 0.8rem;
+            color: #4a90e2;
+        }
+        
+        /* 列表样式 */
+        ul, ol {
+            margin-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        li {
+            margin-bottom: 0.7rem;
+            padding-left: 0.5rem;
+        }
+        
+        /* 页眉页脚 */
+        .header {
+            background: #1e3c72;
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .footer {
+            background: #1e3c72;
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            font-size: 0.9rem;
+        }
+        
+        /* 产品亮点 */
+        .highlights {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .highlight-item {
+            flex: 1 1 300px;
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            border: 1px solid #e1e8ed;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .highlight-icon {
+            font-size: 2.5rem;
+            color: #4a90e2;
+            margin-bottom: 1rem;
+        }
+        
+        .highlight-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            color: #1e3c72;
+        }
+        
+        /* 目录样式 */
+        .toc {
+            background: #f5f9ff; /* 使用纯色确保打印效果 */
+            border-radius: 8px;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-left: 4px solid #4a90e2;
+            border: 1px solid #e1e8ed;
+        }
+        
+        .toc-title {
+            font-size: 1.5rem;
+            color: #1e3c72;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .toc-title i {
+            margin-right: 0.8rem;
+            color: #4a90e2;
+        }
+        
+        .toc-list {
+            list-style-type: none;
+            margin-left: 0;
+        }
+        
+        .toc-list li {
+            margin-bottom: 0.8rem;
+            padding-left: 0;
+        }
+        
+        .toc-list a {
+            color: #2a5298;
+            text-decoration: none;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .cover h1 {
+                font-size: 2.5rem;
+            }
+            
+            .cover .subtitle {
+                font-size: 1.4rem;
+            }
+            
+            .content {
+                padding: 2rem 1rem;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+        }
+        
+        /* 统计图表样式 */
+        .stats-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .stat-card {
+            flex: 1 1 250px;
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            border: 1px solid #e1e8ed;
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #1e3c72;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            font-size: 1rem;
+            color: #666;
+        }
+        
+        /* 图表样式 */
+        .chart-wrapper {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border: 1px solid #e1e8ed;
+            text-align: center;
+        }
+        
+        .chart-title-main {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: #1e3c72;
+            text-align: center;
+        }
+        
+        .chart-subtitle {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        
+        /* 饼图样式 */
+        .pie-chart {
+            width: 300px;
+            height: 300px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .pie-chart-svg {
+            width: 100%;
+            height: 100%;
+            transform: rotate(-90deg);
+        }
+        
+        .pie-segment {
+            fill: none;
+            stroke-width: 32;
+            stroke-linecap: round;
+        }
+        
+        .pie-legend {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+            gap: 1rem;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+        
+        .legend-color {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            margin-right: 0.5rem;
+        }
+        
+        /* 柱状图样式 */
+        .bar-chart {
+            width: 100%;
+            height: 300px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .bar-chart-svg {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .bar {
+            fill: #4a90e2;
+        }
+        
+        .bar-label {
+            font-size: 0.8rem;
+            text-anchor: middle;
+            fill: #333;
+        }
+        
+        .axis-label {
+            font-size: 0.8rem;
+            text-anchor: middle;
+            fill: #666;
+        }
+        
+        
+        /* 产品展示样式 */
+        
+        .product-item {
+            flex: 1 1 600px;          
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            border: 1px solid #ffffff;
+            text-align: center;
+        }
+        
+        .product-image {
+            width: auto;
+            height: 800px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            font-size: 0.9rem;
+            overflow: hidden;
+            position: relative;
+            border: 2px solid #ffffff;
+        }
+        
+        .product-image img {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            border-radius: 6px;
+        }
+        
+        
+        .image-caption {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: #666;
+            font-style: italic;
+            text-align: center;
+        }
+        
+        .product-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #1e3c72;
+        }
+        
+        /* 雷达图展示样式 */
+        .RadarChart-showcase {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 0.5rem 0;
+        }
+        
+        .RadarChart-item {
+            flex: 1 1 350px;          
+            background: white;
+            border-radius: 6px;
+            padding: 0.5rem;
+            border: 0.5px solid #ffffff;
+            text-align: center;
+        }
+        
+        .RadarChart-image {
+            width: auto;
+            height: 400px;
+            background-color: #ffffff;
+            border-radius: 4px;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            font-size: 0rem;
+            overflow: hidden;
+            position: relative;
+            border: 0.5px solid #ffffff;
+        }
+        
+        .RadarChart-image img {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            border-radius: 2px;
+        }
+        
+        
+        .image-caption {
+            margin-top: 0.5rem;
+            font-size: 0rem;
+            color: #666;
+            font-style: italic;
+            text-align: center;
+        }
+        
+
+        /* 打印样式 - 确保背景色正确打印 */
+        @media print {
+            body {
+                box-shadow: none;
+                background: white;
+                -webkit-print-color-adjust: exact !important;
+                color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            
+            .cover {
+                height: auto;
+                min-height: 100vh;
+                page-break-after: always;
+                background: #1e3c72 !important;
+                -webkit-print-color-adjust: exact !important;
+                color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            
+            .header, .footer {
+                background: #1e3c72 !important;
+                -webkit-print-color-adjust: exact !important;
+                color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            
+            th {
+                background: #2a5298 !important;
+                -webkit-print-color-adjust: exact !important;
+                color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            
+            .table-container, .chart-container, .toc, .feature-box, .highlight-item, .stat-card,.product-item {
+                box-shadow: none;
+                border: 1px solid #ddd;
+                break-inside: avoid;
+            }
+            
+            .chart-container, .toc {
+                background: #f5f9ff !important;
+                -webkit-print-color-adjust: exact !important;
+                color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                page-break-inside: avoid;
+                page-break-after: auto;
+                margin: 10pt 0;
+            }
+
+            /* 防止段落跨页 */
+            p, ul, ol {
+                page-break-inside: avoid;
+            }
+            
+            tr:nth-child(even) {
+                background-color: #f5f9ff !important;
+                -webkit-print-color-adjust: exact !important;
+                color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            
+            .section {
+                break-inside: avoid;
+            }
+            
+            h1, h2, h3 {
+                break-after: avoid;
+            }
+            
+            table {
+                break-inside: avoid;
+            }
+            
+            tr {
+                break-inside: avoid;
+                break-after: auto;
+            }
+            
+            .chart-wrapper {
+                break-inside: avoid;
+                border: 1px solid #ddd;
+            }
+
+            .product-showcase{
+                break-inside: avoid;
+                border: 1px solid #ddd;
+            }
+            
+            /* 确保在元素前分页，如果空间不够 */
+            .page-break-before {
+                page-break-before: always;
+            }
+            
+            /* 确保在元素后分页 */
+            .page-break-after {
+                page-break-after: always;
+            }
+
+            /* 避免在元素内部分页 */
+            .no-break-inside {
+                page-break-inside: avoid;
+            }
+
+        }
+        
+    </style>
+</head>
+<body>
+    <!-- 页眉 -->
+    <div class="header">
+        <div class="logo">无畏极客测试报告</div>
+        <div class="report-title">第三届纺织服装新产品体验活动</div>
+    </div>
+    
+    <!-- 封面 -->
+    <div class="cover">
+    </div>
+    
+    <!-- 正文内容 -->
+    <div class="content">       
+        <!-- 署名 -->
+        <div class="section" id="section1">
+            <h1>报告撰写</h1>
+            <p>主要参与人：刘长江、闵语涵、郭慧</p>
+            <p>主要参与单位及所属部门：中国纺织信息中心 供应链协作部</p>
+        </div>        
+        
+        <!-- 目录 -->
+        <div class="section">
+            <div class="toc">
+                <div class="toc-title">
+                    <i class="fas fa-list"></i>
+                    <span>报告目录</span>
+                </div>
+                <ul class="toc-list">
+                    <li><a href="#section1">一、活动背景</a></li>
+                    <li><a href="#section2">二、测试结果调研方法</a></li>
+                    <li><a href="#section3">三、测试地点与气候环境</a></li>
+                    <li><a href="#section4">四、产品成分及功能说明</a></li>
+                    <li><a href="#section5">五、测试推荐的穿搭设计</a></li>
+                    <li><a href="#section6">六、测试结果与调研反馈</a></li>
+                    <li><a href="#section7">七、无畏极客大PK——共创方案</a></li>
+                    <li><a href="#section8">八、结论与建议</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- 一、活动背景 -->
+        <div class="section" id="section1">
+            <h1>一、活动背景</h1>
+            <p>在纺织服装行业竞争激烈的当下，了解消费者对新产品的真实体验和需求，对品牌服装企业的产品开发至关重要。基于推动行业新产品新技术落地应用的目标，无畏极客纺织服装新产品体验活动通过构建全场景的产品体验环境，搭建起新材料、新技术企业与品牌客户及供应链上下游直接沟通、协作共创的平台，从而协助品牌公司了解客户真实体验，最终提升产品性能并推广新产品应用。</p>
+            <p>活动力求模拟普通消费者参与的春秋季户外运动场景，由品牌企业、供应链企业、新产品新技术企业代表共同开展专业的产品测试，并联合组委会对服装系统与各个产品单品的关系开展群体性体验性研究，共同为春秋季环境服装功能性穿搭建立基础解决方案。在此基础上，根据参与测试人员的问卷反馈，形成本报告中的分析内容。</p>
+        </div>
+        
+        <!-- 二、测试结果调研方法 -->
+        <div class="section" id="section2">
+            <h1>二、测试结果调研方法</h1>
+            <p>本次测试采用问卷调查法。其中问卷调研法根据活动的日程，在为期两日的山地徒步活动结束后、于第三日早晨进行问卷发放与收集，共收集有效82份，涵盖了不同地区、不同身体特征、不同职业的测试人员的问卷，确保了调研样本的多样性。</p>
+            <p>此外，本次活动创新性采取众创方式，举办"无畏极客大PK"活动，鼓励测试人员以分组形式，反馈测试产品穿着的真实体验，深入分析产品优势与不足，形成更贴近消费者需求的优化意见与方案。</p>
+            <p>本次调研的7个品类产品包括硬壳冲锋衣、EOS贴身速干衣、Surforce防风摇粒绒、户外登山裤、防晒帽、魔术围巾、羊毛徒步袜。</p>
+        </div>
+        
+        <!-- 三、测试地点与气候环境 -->
+        <div class="section" id="section3">
+            <h1>三、测试地点与气候环境</h1>
+            
+            <h2>（一）测试地点的地理环境与气候特点</h2>
+            <p>本次活动的测试地点是四川省阿坝藏族羌族自治州小金县四姑娘山镇。四姑娘山镇位于北纬30°54′---31°12′，东经102°41′---102°58′，地处横断山脉东北缘、邛崃山脉中段，岷江主要支流沃日河上游贯穿全境。该区域为构造侵蚀-冰缘复合地貌，以中生代花岗岩为基底，发育典型高山峡谷体系，第四纪冰川作用形成刃脊、角峰群与星罗棋布的冰斗湖。镇区海拔约3200米，境内分布18条冰川补给型溪流，年均径流量1.8亿立方米，水质保持国家Ⅰ类标准。</p>
+            <p>北纬31°中纬度结合海拔效应形成立体气候，冬季受西风带南支槽与高原冷涡双重影响，基础气温较同纬度低8-10℃。海拔3200米处全年有效日照时数仅1800小时，冬至日昼长不足10小时。冬季强冷空气沿大渡河峡谷溯源而上，在四姑娘山北坡形成"冷池效应"，凌晨河谷地带常出现-15℃以下低温。孟加拉湾水汽输送遇山脉强制抬升，与冷空气交汇产生"地形雪"，使年均积雪日达120天，雪线以上区域终年可见冻土。</p>
+            <p>本次测试将利用该地区高山深谷地形创造的垂直气候带，在短时间内实现从温带阔叶林至寒漠带的梯度环境暴露。通过模拟高海拔登山、冰川徒步等真实极端场景，验证产品在低氧、强紫外线、剧烈温变复合应力下的环境适应性，确保测试数据真实反映极端环境下的产品性能边界。</p>
+            
+            <h2>（二）测试期间的气象资料</h2>
+            <div class="feature-box">
+                <div class="feature-title">
+                    <i class="fas fa-cloud-sun"></i>
+                    <span>测试期间气象数据</span>
+                </div>
+                <ul>
+                    <li>2025年10月13日，阴转小雨，气温3℃~ 11℃，风速2级，东南风</li>
+                    <li>2025年10月14月，晴，气温2℃ ~ 17℃，风速1级，西风</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- 四、产品成分及功能说明 -->
+        <div class="section" id="section4">
+            <h1>四、产品成分及功能说明</h1>
+            <p>本次测试产品在实验室条件下在各个维度均能达到较高水平，部分成分与功能如下表所示：</p>
+            
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>序号</th>
+                            <th>产品名称</th>
+                            <th>成分</th>
+                            <th>功能</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>硬壳冲锋衣</td>
+                            <td>47.4%聚酯复合弹性纤维<br>52.6%涤纶</td>
+                            <td>生物基、无氨弹，舒适弹性、持久保形、柔软亲肤、色彩表现力强、耐用易打理</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>EOS 贴身速干衣</td>
+                            <td>90%聚酯纤维<br>10%氨纶</td>
+                            <td>吸湿排汗、防失温、安全抗菌、高弹舒适、保暖亲肤</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Surforce防风摇粒绒</td>
+                            <td>表层：100%涤纶<br>中层：Surforce纳米膜<br>里层：100%涤纶</td>
+                            <td>双透气（汽）、高透气、高透湿、防风保暖、轻量舒弹</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>户外登山裤</td>
+                            <td>52%锦纶<br>40%伊纶<br>8%氨纶</td>
+                            <td>植物基尼龙、吸湿排汗、裸感亲肤、防泼水</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>防晒帽</td>
+                            <td>86.5% 涤纶（冰隐纱）<br>13.5%氨纶</td>
+                            <td>防透视、防汗渍、防紫外线、高遮热、吸湿速干</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>魔术围巾</td>
+                            <td>53%美利奴羊毛<br>47%涤纶（冰隐纱）</td>
+                            <td>防透视、防汗渍、防紫外线、高遮热、吸湿速干</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>羊毛徒步袜</td>
+                            <td>64%羊毛、33%锦纶、3%氨纶</td>
+                            <td>保暖、吸湿排汗、微压</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <!-- 五、测试推荐的穿搭设计 -->
+        <div class="section" id="section5">
+            <h1>五、测试推荐的穿搭设计</h1>
+            <p>本次测试推荐的穿搭方案：</p>
+            
+            <div class="highlights">
+                <div class="highlight-item">
+                    <div class="highlight-icon">
+                        <i class="fas fa-tshirt"></i>
+                    </div>
+                    <div class="highlight-title">方案一</div>
+                    <ul style="text-align: left;">
+                        <li>上身：硬壳冲锋衣、EOS贴身速干衣、Surforce防风摇粒绒</li>
+                        <li>下身：户外登山裤、羊毛徒步袜</li>
+                        <li>其他：防晒帽、魔术围巾</li>
+                    </ul>
+                </div>
+                
+                <div class="highlight-item">
+                    <div class="highlight-icon">
+                        <i class="fa-solid fa-socks"></i>
+                    </div>
+                    <div class="highlight-title">方案二</div>
+                    <ul style="text-align: left;">
+                        <li>上身：硬壳冲锋衣、EOS贴身速干衣、Surforce防风摇粒绒</li>
+                        <li>下身：户外登山裤、羊毛徒步袜、保暖压缩裤</li>
+                        <li>其他：防晒帽、魔术围巾</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <p>本次参与测试的产品的款型与设计如下图所示：</p>
+            
+            <!-- 产品展示部分 -->
+            <div class="product-item">
+                <div class="product-image">
+                    <img src='图片/冲锋衣.png' alt="硬壳冲锋衣">
+                </div>
+                <div class="product-title">硬壳冲锋衣</div>
+            </div>
+            
+            <div class="product-item">
+                <div class="product-image">
+                    <img src="图片/速干衣.png" alt="EOS贴身速干衣">
+                </div>
+                <div class="product-title">EOS贴身速干衣</div>
+            </div>
+            
+            <div class="product-item">
+                <div class="product-image">
+                    <img src="图片/摇粒绒.png" alt="Surforce防风摇粒绒">
+                </div>
+                <div class="product-title">Surforce防风摇粒绒</div>
+            </div>
+            
+            <div class="product-item">
+                <div class="product-image">
+                    <img src="图片/登山裤.png" alt="户外登山裤">
+                </div>
+                <div class="product-title">户外登山裤</div>
+            </div>
+            
+            <div class="product-item">
+                <div class="product-image">
+                    <img src="图片/防晒帽.png" alt="防晒帽">
+                </div>
+                <div class="product-title">防晒帽</div>
+            </div>
+            
+            <div class="product-item">
+                <div class="product-image">
+                    <img src="图片/围巾.png" alt="魔术围巾">
+                </div>
+                <div class="product-title">魔术围巾</div>
+            </div>
+            
+            <div class="product-item">
+                <div class="product-image">
+                    <img src="图片/徒步袜.png" alt="羊毛徒步袜">
+                </div>
+                <div class="product-title">羊毛徒步袜</div>
+            </div>
+        </div>
+        
+        <!-- 六、测试结果与调研反馈 -->
+        <div class="section" id="section6">
+            <h1>六、测试结果与调研反馈</h1>
+            
+            <h2>（一）测试群体基本信息</h2>
+            
+            <h3>1. 人口统计学信息</h3>
+            <p>参与测试人员的性别、年龄和地域信息如下图表所示：</p>
+            
+            <!-- 性别分布饼状图 -->
+            <div class="chart-wrapper">
+                <h3 class="chart-title-main">测试人员性别分布</h3>
+                <p class="chart-subtitle">基于82份有效问卷的性别比例分析</p>
+                <div class="pie-chart">
+                    <svg class="pie-chart-svg" viewBox="0 0 42 42">
+                        <!-- 饼图主体 -->
+                        <circle cx="21" cy="21" r="12" fill="none" stroke="#e1e8ed" stroke-width="12"></circle>
+                        
+                        <!-- 男性部分 (64.63%) -->
+                        <circle cx="21" cy="21" r="12" fill="none" stroke="#2a5298" stroke-width="12" 
+                                stroke-dasharray="48.73 26.67 " stroke-dashoffset="0"></circle>
+                        
+                        <!-- 女性部分 (35.37%) -->
+                        <circle cx="21" cy="21" r="12" fill="none" stroke="#fdcc50" stroke-width="12" 
+                                stroke-dasharray="26.67 48.73 " stroke-dashoffset="26.67"></circle>
+                    </svg>
+                </div>
+                <div class="pie-legend">
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: #2a5298;"></div>
+                        <span>男性 (64.63%) - 53人</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: #fdcc50;"></div>
+                        <span>女性 (35.37%) - 29人</span>
+                    </div>
+                </div>
+            </div>       
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>统计信息</th>
+                            <th>分类</th>
+                            <th>人数</th>
+                            <th>占比</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td rowspan="2">性别</td>
+                            <td>男</td>
+                            <td>53</td>
+                            <td>64.63%</td>
+                        </tr>
+                        <tr>
+                            <td>女</td>
+                            <td>29</td>
+                            <td>35.37%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+           
+            <!-- 年龄分布柱状图 -->
+            <div class="chart-wrapper">
+                <h3 class="chart-title-main">测试人员年龄分布</h3>
+                <p class="chart-subtitle">基于82份有效问卷的年龄结构分析</p>
+                <div class="bar-chart">
+                    <svg class="bar-chart-svg" viewBox="0 0 400 300">
+                        <!-- Y轴 -->
+                        <line x1="50" y1="20" x2="50" y2="250" stroke="#ccc" stroke-width="2"></line>
+                        <!-- X轴 -->
+                        <line x1="50" y1="250" x2="380" y2="250" stroke="#ccc" stroke-width="2"></line>
+                        
+                        <!-- Y轴标签 -->
+                        <text x="30" y="20" class="axis-label">人数</text>
+                        <text x="30" y="50" class="axis-label">40</text>
+                        <text x="30" y="100" class="axis-label">30</text>
+                        <text x="30" y="150" class="axis-label">20</text>
+                        <text x="30" y="200" class="axis-label">10</text>
+                        <text x="30" y="250" class="axis-label">0</text>
+                        
+                        
+                        <!-- 柱状图 -->
+                        <rect class="bar" x="70" y="215" width="40" height="35" rx="2"></rect>
+                        <text x="90" y="205" class="bar-label">8.54%</text>
+                        
+                        <rect class="bar" x="130" y="105" width="40" height="145" rx="2"></rect>
+                        <text x="150" y="95" class="bar-label">35.37%</text>
+                        
+                        <rect class="bar" x="190" y="60" width="40" height="190" rx="2"></rect>
+                        <text x="210" y="50" class="bar-label">46.34%</text>
+                        
+                        <rect class="bar" x="250" y="215" width="40" height="35" rx="2"></rect>
+                        <text x="270" y="205" class="bar-label">8.54%</text>
+                        
+                        <rect class="bar" x="310" y="245" width="40" height="5" rx="2"></rect>
+                        <text x="330" y="235" class="bar-label">1.22%</text>
+                        
+                        <!-- X轴标签 -->
+                        <text x="90" y="270" class="axis-label">20-29岁</text>
+                        <text x="150" y="270" class="axis-label">30-39岁</text>
+                        <text x="210" y="270" class="axis-label">40-49岁</text>
+                        <text x="270" y="270" class="axis-label">50-59岁</text>
+                        <text x="330" y="270" class="axis-label">60岁以上</text>
+                        <text x="400" y="270" class="axis-label">年龄</text>
+                    </svg>
+                </div>
+            </div>
+            <!-- 年龄分布 -->
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>统计信息</th>
+                            <th>类型</th>
+                            <th>人数</th>
+                            <th>百分比</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td rowspan="5">年龄</td>
+                            <td>20-29岁</td>
+                            <td>7</td>
+                            <td>8.54%</td>
+                        </tr>
+                        <tr>
+                            <td>30-39岁</td>
+                            <td>29</td>
+                            <td>35.37%</td>
+                        </tr>
+                        <tr>
+                            <td>40-49岁</td>
+                            <td>38</td>
+                            <td>46.34%</td>
+                        </tr>
+                        <tr>
+                            <td>50-59岁</td>
+                            <td>7</td>
+                            <td>8.54%</td>
+                        </tr>
+                        <tr>
+                            <td>60岁以上</td>
+                            <td>1</td>
+                            <td>1.22%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- 地域分布柱状图 -->
+            <div class="chart-wrapper">
+                <h3 class="chart-title-main">测试人员地域分布</h3>
+                <p class="chart-subtitle">基于82份有效问卷的地域来源分析</p>
+                <div class="bar-chart">
+                    <svg class="bar-chart-svg" viewBox="0 0 500 350">
+                        <!-- Y轴 -->
+                        <line x1="60" y1="20" x2="60" y2="300" stroke="#ccc" stroke-width="2"></line>
+                        <!-- X轴 -->
+                        <line x1="60" y1="300" x2="480" y2="300" stroke="#ccc" stroke-width="2"></line>
+                        
+                        <!-- Y轴标签 -->
+                        <text x="40" y="20" class="axis-label">人数</text>
+                        <text x="40" y="50" class="axis-label">25</text>
+                        <text x="40" y="100" class="axis-label">20</text>
+                        <text x="40" y="150" class="axis-label">15</text>
+                        <text x="40" y="200" class="axis-label">10</text>
+                        <text x="40" y="250" class="axis-label">5</text>
+                        <text x="40" y="300" class="axis-label">0</text>
+                        
+                        <!-- 柱状图 -->
+                        <!-- 上海 (23人) -->
+                        <rect class="bar" x="80" y="70" width="30" height="230" rx="2" fill="#2a5298"></rect>
+                        <text x="95" y="60" class="bar-label">28.05%</text>
+                        
+                        <!-- 北京 (19人) -->
+                        <rect class="bar" x="120" y="110" width="30" height="190" rx="2" fill="#4a90e2"></rect>
+                        <text x="135" y="100" class="bar-label">23.17%</text>
+                        
+                        <!-- 广东 (11人) -->
+                        <rect class="bar" x="160" y="190" width="30" height="110" rx="2" fill="#fdcc50"></rect>
+                        <text x="175" y="180" class="bar-label">13.41%</text>
+                        
+                        <!-- 福建 (10人) -->
+                        <rect class="bar" x="200" y="200" width="30" height="100" rx="2" fill="#ff6b6b"></rect>
+                        <text x="215" y="190" class="bar-label">12.20%</text>
+                        
+                        <!-- 浙江 (8人) -->
+                        <rect class="bar" x="240" y="220" width="30" height="80" rx="2" fill="#51cf66"></rect>
+                        <text x="255" y="210" class="bar-label">9.76%</text>
+                        
+                        <!-- 山东 (6人) -->
+                        <rect class="bar" x="280" y="240" width="30" height="60" rx="2" fill="#cc65fe"></rect>
+                        <text x="295" y="230" class="bar-label">7.32%</text>
+                        
+                        <!-- 江苏 (3人) -->
+                        <rect class="bar" x="320" y="270" width="30" height="30" rx="2" fill="#ffa94d"></rect>
+                        <text x="335" y="260" class="bar-label">3.66%</text>
+                        
+                        <!-- 湖北 (1人) -->
+                        <rect class="bar" x="360" y="290" width="30" height="10" rx="2" fill="#74c0fc"></rect>
+                        <text x="375" y="280" class="bar-label">1.22%</text>
+                        
+                        <!-- 四川 (1人) -->
+                        <rect class="bar" x="400" y="290" width="30" height="10" rx="2" fill="#ff8787"></rect>
+                        <text x="415" y="280" class="bar-label">1.22%</text>
+                        
+                        <!-- X轴标签 -->
+                        <text x="95" y="320" class="axis-label">上海</text>
+                        <text x="135" y="320" class="axis-label">北京</text>
+                        <text x="175" y="320" class="axis-label">广东</text>
+                        <text x="215" y="320" class="axis-label">福建</text>
+                        <text x="255" y="320" class="axis-label">浙江</text>
+                        <text x="295" y="320" class="axis-label">山东</text>
+                        <text x="335" y="320" class="axis-label">江苏</text>
+                        <text x="375" y="320" class="axis-label">湖北</text>
+                        <text x="415" y="320" class="axis-label">四川</text>
+                        
+                        <!-- 图表标题 -->
+                        <text x="270" y="340" class="axis-label">地域分布</text>
+                    </svg>
+                </div>
+            </div>            
+            <!-- 地域分布 -->
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>统计信息</th>
+                            <th>类型</th>
+                            <th>人数</th>
+                            <th>百分比</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td rowspan="9">地域</td>
+                            <td>上海</td>
+                            <td>23</td>
+                            <td>28.05%</td>
+                        </tr>
+                        <tr>
+                            <td>北京</td>
+                            <td>19</td>
+                            <td>23.17%</td>
+                        </tr>
+                        <tr>
+                            <td>广东</td>
+                            <td>11</td>
+                            <td>13.41%</td>
+                        </tr>
+                        <tr>
+                            <td>福建</td>
+                            <td>10</td>
+                            <td>12.20%</td>
+                        </tr>
+                        <tr>
+                            <td>浙江</td>
+                            <td>8</td>
+                            <td>9.76%</td>
+                        </tr>
+                        <tr>
+                            <td>山东</td>
+                            <td>6</td>
+                            <td>7.32%</td>
+                        </tr>
+                        <tr>
+                            <td>江苏</td>
+                            <td>3</td>
+                            <td>3.66%</td>
+                        </tr>
+                        <tr>
+                            <td>湖北</td>
+                            <td>1</td>
+                            <td>1.22%</td>
+                        </tr>
+                        <tr>
+                            <td>四川</td>
+                            <td>1</td>
+                            <td>1.22%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>   
+
+            <p>结果表明，测试人员性别与各年龄段分布符合调研测试需求，且来自全国北京、上海、广东、江苏等9个省共17个城市，表明活动具有一定的影响力和覆盖范围，为产品反馈的多样性提供了基础。</p>
+            
+            <!-- 身高体重信息 -->
+            <h3>2. 身高体重信息</h3>
+            <p>在测试前，活动组委会考虑到个体尺寸的差异性和体验服装多尺码成本的因素，在生产前对参与活动人员的尺寸进行了统计，同时设计了不分男女，统一尺码，尺码跳码：165、175、185三个尺码的生产原则，尽量保证各个身材的人群能够覆盖，不同身材的测试人员都能参与体验，并对产品的功能性开展测试工作。</p>
+            
+            <p>在身高数据上，从统计数据可以看出：</p>
+            <ul>
+                <li>男性测试人员共53人，平均身高为173CM，最大为198CM，最小为160CM，标准差为6.0CM。170-179CM的人数最多为39人，占男性总人数73.58%。</li>
+                <li>女性测试人员共29人，平均身高为163CM，最大为172CM，最小为153CM，标准差为4.4CM。160-169CM的人数最多为23人，占女性总人数79.31%。</li>
+            </ul>
+            <p>这些数据表明，在测试人员中，大部分人的身高集中在160-179CM之间，而较矮或较高的人数相对较少。</p>
+            
+            <p>在体重数据上，从统计数据可以看出：</p>
+            <ul>
+                <li>男性测试人员共53人，平均体重为73.5kg，最大为120kg，最小为60kg，标准差为9.78kg。70-80kg的人数最多为25人，占男性总人数47.17%。</li>
+                <li>女性测试人员共29人，平均体重为57.6kg，最大为65kg，最小为49kg，标准差为4.9kg。50-60kg的人数最多为17人，占女性总人数58.62%。</li>
+            </ul>
+            
+            <p>通过对所有测试人员的BMI判定结果进行统计，得出以下各类别的具体人数：</p>
+            <p>正常范围：55人，超重：26人，体重过低：1人</p>
+            
+            <p>BMI（身体质量指数）计算公式：BMI = 体重（kg） / 身高²（m²）</p>
+            <div class="chart-wrapper">             
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>BMI范围</th>
+                                <th>分类</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>&lt;18.5</td>
+                                <td>体重过轻</td>
+                            </tr>
+                            <tr>
+                                <td>18.5-24.9</td>
+                                <td>正常范围</td>
+                            </tr>
+                            <tr>
+                                <td>25.0-29.9</td>
+                                <td>超重</td>
+                            </tr>
+                            <tr>
+                                <td>≥30.0</td>
+                                <td>肥胖</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- BMI分布饼状图 -->
+            <div class="chart-wrapper">
+                <h3 class="chart-title-main">测试人员BMI分布</h3>
+                <p class="chart-subtitle">基于82份有效问卷的BMI分类分析</p>
+                <div class="pie-chart">
+                    <svg class="pie-chart-svg" viewBox="0 0 42 42">
+                        <!-- 饼图主体 -->
+                        <circle cx="21" cy="21" r="12" fill="none" stroke="#e1e8ed" stroke-width="12"></circle>
+                        
+                        <!-- 正常范围部分 (67.07%) -->
+                        <circle cx="21" cy="21" r="12" fill="none" stroke="#0dd92f" stroke-width="12" 
+                                stroke-dasharray="50.6 24.8" stroke-dashoffset="0"></circle>
+                        
+                        <!-- 超重部分 (31.71%) -->
+                        <circle cx="21" cy="21" r="12" fill="none" stroke="#f78e1e" stroke-width="12" 
+                                stroke-dasharray="23.9 51.5" stroke-dashoffset="23.9"></circle>
+                        
+                        <!-- 体重过低部分 (1.22%) -->
+                        <circle cx="21" cy="21" r="12" fill="none" stroke="#238fe3" stroke-width="12" 
+                                stroke-dasharray="0.9 74.5" stroke-dashoffset="24.8"></circle>
+                    </svg>
+                </div>
+                <div class="pie-legend">
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: #0dd92f;"></div>
+                        <span>正常范围 (67.07%) - 55人</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: #f78e1e;"></div>
+                        <span>超重 (31.71%) - 26人</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: #238fe3;"></div>
+                        <span>体重过低 (1.22%) - 1人</span>
+                    </div>
+                </div>
+            </div>
+            <p>综上所述，通过分析身高与体重数据，结果发现：80%以上测试人员，身高在160-179cm、体重在50-80kg范围内，67%测试人员BMI处于正常范围。本次活动基于上述群体特征开展的测试工作。</p>
+            
+            <p>此外，尽管本次测试提供了多尺码选择，但由于测试人群身高与体重水平差异较大，不可避免存在尺码与身形无法匹配的问题。因此，本次测试中服装廓形和尺码导致的体验感下降本质上不是测试主要目的，未来的产品优化应在全码测试下重点关注这些问题。</p>
+            
+        
+            <h2>（二）活动参与情况</h2>
+            <h3>1. 动态活动参与情况</h3>
+            <p>测试人员对动态活动的参与情况多样，山地活动、拓展训练等项目综合参与度较高，说明这些活动形式受关注，且参与程度相对接近。这意味着，本次动态活动测试人员参与积极性较高，其深入参与活动后的真实感受对本次测试主观评价起到重要作用。此外，参与活动的多样性对服装产品提出了更严格的要求。测试产品在设计之时需同时满足不同动态活动场景下的功能性需求，如运动灵活性、保暖性与透气性的平衡。</p>
+            
+            <div class="chart-container">
+                <div class="chart-title">
+                    <i class="fas fa-chart-pie"></i>
+                    <span>动态活动参与情况</span>
+                </div>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>活动类型</th>
+                                <th>参与人数</th>
+                                <th>占比</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>山地活动</td>
+                                <td>78</td>
+                                <td>95.1%</td>
+                            </tr>
+                            <tr>
+                                <td>拓展训练</td>
+                                <td>77</td>
+                                <td>93.9%</td>
+                            </tr>
+                            <tr>
+                                <td>水上活动</td>
+                                <td>70</td>
+                                <td>85.4%</td>
+                            </tr>
+                            <tr>
+                                <td>小游戏</td>
+                                <td>68</td>
+                                <td>82.9%</td>
+                            </tr>
+                            <tr>
+                                <td>徒步挑战</td>
+                                <td>12</td>
+                                <td>14.6%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <p>（1）山地活动参与度最高：山地活动是最受欢迎的活动，有78人（约95.1%）参与，几乎涵盖了所有测试人员。这表明山地活动作为一项基础且重要的活动，得到了广泛的认可和积极参与。此外，组委会为测试人员配置了封闭的专业徒步线路，并分配了多位专业保障人员，降低了运动的风险，也促进了测试人员勇于开展山地活动。</p>
+            </p>（2）拓展训练参与度较高：拓展训练有77人（约93.9%）参与，这项活动也受到了大多数测试人员的青睐。拓展训练主要以山地运动的急救知识与训练为主，对于活动的人身安全的重要性不言而喻，是确保安全和准备充分的重要环节。</p>
+            </p>（3）水上活动与小游戏参与度相对较低：水上活动与小游戏的参与人数相对较低，分别有70人（约85.4%）和68人（约82.9%）。尽管如此，这一数字仍然相当可观。水上活动与小游戏均为13日户外活动，活动期间存在小雨天气，降低了测试人员参与积极性，因此参与人数相对较少，但依然吸引了超过80%的测试人员。</p>
+            </p>（4）徒步挑战参与人数最少：受限于安全保障、测试人员个人身体素质差异等因素，主办团队设计了限制12人的小组参与的徒步挑战项目活动。参与人员具备一定的高原徒步活动基础，并需在规定时间内完成8公里高海拔山地徒步活动。</p>
+            </p>（5）总结：综上所述，本次动态活动的参与情况显示出山地活动是最受欢迎的活动，几乎所有测试人员都选择了这项活动。拓展训练紧随其后，也获得了较高的参与度。水上活动与小游戏参与人数相对较少，原因在于当日天气降雨问题，出于安全性考虑，不要求测试人员参与水上项目与小游戏活动。建议未来活动可以考虑更多类型场地，制定突发情况预案，保障测试人员参与活动。同时，继续保持和推广其他高参与度的活动，确保活动的多样性和吸引力。</p>            
+
+            <h3>2. 静态活动参与情况</h3>
+            <p>等待比赛、等车与坐车等静态活动参与普遍，表明服装在静态场景下的舒适度、防风保暖、吸湿排汗和透气等功能同样重要，例如在剧烈运动完的户外等待时，服装的防风保暖性能直接影响体验。</p>
+            <div class="chart-container">
+                <div class="chart-title">
+                    <i class="fas fa-chart-pie"></i>
+                    <span>静态活动参与情况</span>
+
+                </div>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>活动类型</th>
+                                <th>参与人数</th>
+                                <th>占比</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>等待比赛</td>
+                                <td>73</td>
+                                <td>89.0%</td>
+                            </tr>
+                            <tr>
+                                <td>等车</td>
+                                <td>71</td>
+                                <td>86.6%</td>
+                            </tr>
+                            <tr>
+                                <td>坐车</td>
+                                <td>78</td>
+                                <td>95.1%</td>
+                            </tr>
+                            <tr>
+                                <td>吃饭（室内）</td>
+                                <td>70</td>
+                                <td>85.4%</td>
+                            </tr>
+                            <tr>
+                                <td>吃饭（户外）</td>
+                                <td>64</td>
+                                <td>78.0%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <p>本次静态活动保持了较高的参与率。区别于动态活动，静态活动测试侧重于检验产品对极端环境的防护效果。本次测试人员参与静态活动的平均时长与参与率程度较高，有效考察了产品在静态情况下的保暖、防风、防水等具体性能表现。</p>
+            
+            <!-- 新增内容开始 -->
+            <h3>3. 运动场景覆盖度</h3>
+            <h4>动态活动强度值</h4>
+            <p><strong>各项动态活动的时长：</strong></p>
+            <ul>
+                <li>山地活动：约300分钟</li>
+                <li>水上活动：约30分钟</li>
+                <li>拓展训练：约75分钟</li>
+                <li>小游戏：约60分钟</li>
+                <li>徒步挑战：约150分钟</li>
+            </ul>
+            <p>60位测试人员参加了全部基础的4项动态活动（山地活动、水上活动、拓展训练、小游戏），占比超50%。至少参与3项以上动态活动的测试人员有73名（89.0%），至少参与2项动态活动的有77名（93.9%）。充分说明本次测试人员动态活动参与水平和运动的多样性较高。</p>
+            <p>此外，参与山地活动的测试人员平均每日总活动时间超过150分钟。此外，12名测试人员在动态活动中参与高强度有氧的徒步挑战。测试人员总体运动强度较高，能够充分测试服装透气与吸湿性能。</p>
+
+            <h4>静态暴露时长</h4>
+            <p><strong>各项静态活动的时长：</strong></p>
+            <ul>
+                <li>等待比赛（户外）：约30分钟</li>
+                <li>等车（户外）：约60分钟</li>
+                <li>坐车：约300分钟</li>
+                <li>吃饭（室内）：约120分钟</li>
+                <li>吃饭（户外，无畏极客大PK）：约90分钟</li>
+            </ul>
+            <p>户外暴露中位时长达到180分钟，均为具备一定强度的山地活动运动后的静止时间，表明本次测试强度与真实性较高。</p>
+
+            <h3>4. 活动总结</h3>
+            <p>本次产品测试，基于"动静平衡"这一专业防护理念，系统性地设置了动态与静态两个维度的评估场景。在动态测试中，则着重评估了其在运动过程中，通过面料吸湿排汗功能、维持体感干爽的能力；而在静态测试中，报告重点考察了产品在静止状态下作为可靠屏障的保暖、防风与防水的性能。此次测试的成功实施，意味着报告首次在同一产品周期内，完整获取了其在"防御"与"运动"两种关键状态下的核心数据。不仅验证了产品原型的综合性能，更为未来优化产品，真正实现保暖与透气、防护与灵活性的智能平衡，提供了相对完善的数据支持。</p>
+
+
+            <h2>（三）试穿服装综合评价</h2>
+            <p>本次测试结合测试人员反馈数据分析汇总得到各项产品综合评价，包括产品优势与改进建议。</p>
+            
+            <div class="feature-box">
+                <div class="feature-title">
+                    <i class="fas fa-award"></i>
+                    <span>硬壳冲锋衣综合评价</span>
+                </div>
+                <h3>产品优势</h3>
+                <ul>
+                    <li>防风性能与防水性能得到了绝大多数测试人员的高度认可，表明这款冲锋衣在春秋季户外环境下的防风防水表现出色</li>
+                    <li>保暖和超轻性能受到了较多测试人员的肯定，特别是在寒冷环境中能够提供高效率的保暖效果</li>
+                    <li>在问卷测试性能之外，静音性能在实际产品体感体验得到部分测试人员注意，并且得到较高水平评价</li>
+                </ul>
+                <h3>改进建议</h3>
+                <ul>
+                    <li>防水性能：尽管多数测试人员对产品防水性能表示满意，但测试人员反馈中仍有部分测试人员认为防水性仍存在改善空间，建议加强这方面的面料与技术改进，提升整体穿着体验</li>
+                    <li>保暖、耐磨性能：获得部分成员认可，但同样存在一定数量负面评价，测试产品面料耐磨程度、隔热等物理属性方向仍需加强</li>
+                    <li>外观与设计提升：尽管大部分测试人员认为服装舒适，但仍有改进空间，特别是领口、袖口、拉链等细节处的设计可以更加人性化</li>
+                </ul>
+                <p>综上所述，硬壳冲锋衣在防风和防水性能方面表现出色，但在耐磨、保暖性能功能结构设计等方面仍有改进空间。</p>
+                <div class="RadarChart-item">
+                    <div class="RadarChart-image">
+                        <img src='雷达图/冲锋衣.jpg' alt="硬壳冲锋衣">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="feature-box">
+                <div class="feature-title">
+                    <i class="fas fa-tshirt"></i>
+                    <span>EOS 贴身速干衣综合评价</span>
+                </div>
+                <h3>产品优势</h3>
+                <ul>
+                    <li>亲肤柔软性得到了绝大多数测试人员的高度认可，表明这款EOS 速干衣作为贴身衣物，在亲肤方面表现出色</li>
+                    <li>保暖性能和吸湿速干性能也受到了较多测试人员的肯定，特别是在应对户外场景快速变化的环境气温与运动后的保暖吸湿需求下，提供良好的穿着体验</li>
+                    <li>舒适度整体较高，大部分测试人员认为穿着非常舒适或舒适</li>
+                </ul>
+                <h3>改进建议</h3>
+                <ul>
+                    <li>透气性能：透气性能表现获得一定认可，但测试人员反馈中提到透气性能需要改善，特别是在户外长时间运动等特定场景下</li>
+                    <li>耐磨性能：部分测试人员反馈运动后的非贴肤棉的面料易起球，仍需改善</li>
+                    <li>外观与结构设计：部分测试人员认为版型设计过于宽松、居家。希望产品设计更加时尚，颜色选择更多样化，并且更符合户外活动的需求</li>
+                </ul>
+                <p>综上所述，EOS 贴身速干衣在亲肤柔软、保暖、吸湿速干方面表现出色，但在透气性能、耐磨性能、外观设计等方面仍有改进空间，以提高测试人员体验。</p>
+                <div class="RadarChart-item">
+                    <div class="RadarChart-image">
+                        <img src='雷达图/速干衣.jpg' alt="EOS贴身速干衣">
+                    </div>
+                </div>
+            </div>
+            
+            
+            <!-- 摇粒绒 -->
+            <div class="feature-box">
+                <div class="feature-title">
+                    <i class="fas fa-tshirt"></i>
+                    <span>Surforce防风摇粒绒综合评价</span>
+                </div>
+                <h3>产品优势</h3>
+                <ul>
+                    <li>防风性能和超轻性能得到了绝大多数测试人员的高度认可，表明这款摇粒绒在防风和轻便方面表现出色</li>
+                    <li>亲肤柔软性也受到了较多测试人员的肯定，作为内置衣物满足基本要求</li>
+                    <li>尺码情况和舒适度整体评价较高，与版型设计较为宽松有关，因此，大部分测试人员认为穿着非常舒适或舒适</li>
+                </ul>
+                <h3>改进建议</h3>
+                <ul>
+                    <li>透气和透湿性能提升：这两项性能得到的认可相对较少，且部分测试人员反馈的运动后透气和透湿性能存在不足，建议加强这方面的技术改进，提升户外运动穿着体验</li>
+                    <li>保暖性能：保暖性能在获得较多认可的同时，部分测试人员认为，过于轻薄设计降低了摇粒绒产品的保暖性能，认为在成衣设计上存在改善空间</li>
+                    <li>外观与结构设计：测试款式因内外穿兼顾的功能性，在样品颜色选择等方面无法达到测试人员预期。部分测试人员希望产品设计更加时尚，颜色选择更多样化，考虑真实使用需求，结合产品功能调整设计方案</li>
+                </ul>
+                <p>综上所述，Surforce防风摇粒绒在防风、超轻性能和亲肤柔软性方面表现出色，但在透气和透湿性能、外观与结构设计等方面仍有改进空间。</p>
+                <div class="RadarChart-item">
+                    <div class="RadarChart-image">
+                        <img src='雷达图/摇粒绒.jpg' alt="Surforce防风摇粒绒">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="feature-box">
+                <div class="feature-title">
+                    <i class="fas fa-hiking"></i>
+                    <span>户外登山裤综合评价</span>
+                </div>
+                <h3>产品优势</h3>
+                <ul>
+                    <li>弹力舒适性得到了绝大多数测试人员的高度认可，表明这款户外登山裤在面料弹性方面表现出色</li>
+                    <li>透气性能也获得了一定的认可，能够满足户外运动场景的透气需求</li>
+                    <li>外观设计较为时尚，美观度高，并且提高颜色的饱和度，使其更具吸引力</li>
+                </ul>
+                <h3>改进建议</h3>
+                <ul>
+                    <li>保暖性能不足：测试人员反馈中提到保暖性能不足，考虑本次测试地点海拔较高气温相对较低，并且登山裤透气性能相对较高，与保暖性能存在一定矛盾，建议针对不同场景平衡保暖与透气性能</li>
+                    <li>结构设计优化：大部分测试人员反映口袋设计不合理，建议进一步优化裤子口袋位置，开口大小，确保更广泛的适配性。同时针对冬季户外场景，建议调整增加面料的厚度和增加微磨毛</li>
+                    <li>工艺优化：测试人员反馈防水性能无法满足户外运动产品应对天气变化的需求。事实上，由于户外登山裤在工艺设计倾向上采用防泼水设计，并没有做特殊防水处理，与面料相关度较低，可通过后续工艺设计进行优化</li>
+
+                </ul>
+                <p>综上所述，户外登山裤在弹力舒适性和透气性能方面表现出色，但在保暖性能、结构功能设计等方面仍有改进空间。</p>
+                <div class="RadarChart-item">
+                    <div class="RadarChart-image">
+                        <img src='雷达图/登山裤.jpg' alt="登山裤">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="feature-box">
+                <div class="feature-title">
+                    <i class="fas fa-hat-cowboy"></i>
+                    <span>防晒帽综合评价</span>
+                </div>
+                <h3>产品优势</h3>
+                <ul>
+                    <li>防晒性能得到了绝大多数测试人员的高度认可，表明这款防晒帽在基础防晒功能方面表现出色</li>
+                    <li>透气性能和吸湿速干性能也受到了较多测试人员的肯定，特别是在运动过程中能够保持干爽和温暖</li>
+                </ul>
+                <h3>改进建议</h3>
+                <ul>
+                    <li>尺码调整：帽子受尺码和头型影响较大，部分测试人员反映尺码过紧或过松，建议进一步优化尺码设计，确保更广泛的适配性</li>
+                    <li>结构设计：改进一些结构功能设计，如帽子深浅设计、前后帽沿高度优化等，以提高产品的实用性</li>
+                    <li>外观设计：部分测试人员希望产品设计更加美观时尚，需调整帽子高度，颜色设计，并且更符合实际使用需求</li>
+                </ul>
+                <p>综上所述，防晒帽在防晒、透气和吸湿速干性能方面表现出色，但部分测试人员反馈在尺码适配和外观设计等方面仍有改进空间。</p>
+                <div class="RadarChart-item">
+                    <div class="RadarChart-image">
+                        <img src='雷达图/防晒帽.jpg' alt="防晒帽">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="feature-box">
+                <div class="feature-title">
+                    <i class="fa-solid fa-star"></i>
+                    <span>魔术围巾综合评价</span>
+                </div>
+                <h3>产品优势</h3>
+                <ul>
+                    <li>防晒性能得到了大多数测试人员的高度认可，表明这款魔术围巾在基础户外防晒方面表现优异</li>
+                    <li>亲肤柔软性受到了较多测试人员的肯定，尤其是在面料手感等方面具有突出表现，表明测试产品在面料功能上具备独特设计优势</li>
+                    <li>吸湿速干性能得到多数测试人员认可，满足户外运动场景需求</li>
+                </ul>
+                <h3>改进建议</h3>
+                <ul>
+                    <li>亲肤柔软性：少部分测试用户反馈边缘处存在不舒适情况，后续需注意在更广范围进行测试</li>
+                    <li>功能设计：尽管大部分测试人员认为服装舒适，但仍有改进空间，特别是增加透气孔、挂耳固定、可调整松紧度等细节处的设计</li>
+                </ul>
+                <p>综上所述，魔术围巾在防晒性能、吸湿速干性能方面表现出色，但在亲肤柔软性、功能设计等方面仍有改进空间。</p>
+                <div class="RadarChart-item">
+                    <div class="RadarChart-image">
+                        <img src='雷达图/魔术围巾.jpg' alt="魔术围巾">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="feature-box">
+                <div class="feature-title">
+                    <i class="fas fa-socks"></i>
+                    <span>羊毛徒步袜综合评价</span>
+                </div>
+                <h3>产品优势</h3>
+                <ul>
+                    <li>保暖性能得到了绝大多数测试人员的高度认可，表明这款羊毛徒步袜在户外运动保暖方面表现出色</li>
+                    <li>透气和吸湿性能也受到了较多测试人员的肯定，特别是在运动过程中能够足部保持干爽</li>
+                    <li>弹力舒适性和亲肤柔软性也获得了一定的认可，说明作为贴身穿戴物，羊毛徒步袜的穿着舒适程度方面得到了测试人员的肯定</li>
+                    <li>值得注意的是，部分测试人员提出羊毛徒步袜在防臭、无异味等袜子产品品类关键特征具有突出表现</li>
+                </ul>
+                <h3>改进建议</h3>
+                <ul>
+                    <li>功能性提升：应对多个场景，考虑增厚或减薄，并增加一些实用的功能设计，如抗静电功能等，以提高产品的实用性</li>
+                    <li>耐磨性能提升：部分测试人员对产品耐磨性能给出了负面评价，建议结合面料粘毛和起球问题共同解决该问题</li>
+                    <li>结构设计：袜子整体偏长，建议结合应用场景重新考虑整体结构设计</li>
+                </ul>
+                <p>综上所述，羊毛徒步袜在保暖、透气吸湿、弹性亲肤、防臭无异味等多个性能方面表现出色，但在功能结构、耐磨性能等方面仍有改进空间。</p>
+                <div class="RadarChart-item">
+                    <div class="RadarChart-image">
+                        <img src='雷达图/徒步袜.jpg' alt="羊毛徒步袜">
+                    </div>
+                </div>
+            </div>
+            
+            <h2>（四）产品横向对比</h2>
+            
+            <h3>1. 外套类别产品横向对比</h3>
+            <p>本次测试的外套类别产品包括硬壳冲锋衣、Surforce防风摇粒绒、户外登山裤共3个产品。总计需要测试的性能包括13项：防风性能、超轻性能、防水性能、弹力舒适性、透气性能、耐磨性能、保暖性能、透湿性能、亲肤柔软性、吸湿性能、外观与结构设计、环保理念。</p>
+            
+            <p>各项性能认可情况：（最大值加粗标记）</p>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>性能认可</th>
+                            <th>冲锋衣</th>
+                            <th>摇粒绒</th>
+                            <th>登山裤</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>防风性能</td>
+                            <td><strong>56</strong></td>
+                            <td>46</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>超轻性能</td>
+                            <td><strong>55</strong></td>
+                            <td>38</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>防水性能</td>
+                            <td><strong>66</strong></td>
+                            <td></td>
+                            <td>21</td>
+                        </tr>
+                        <tr>
+                            <td>弹力舒适性</td>
+                            <td>39</td>
+                            <td></td>
+                            <td><strong>70</strong></td>
+                        </tr>
+                        <tr>
+                            <td>环保理念</td>
+                            <td><strong>28</strong></td>
+                            <td></td>
+                            <td>22</td>
+                        </tr>
+                        <tr>
+                            <td>透气性能</td>
+                            <td>34</td>
+                            <td>34</td>
+                            <td><strong>43</strong></td>
+                        </tr>
+                        <tr>
+                            <td>耐磨性能</td>
+                            <td>15</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>保暖性能</td>
+                            <td>23</td>
+                            <td><strong>49</strong></td>
+                            <td>17</td>
+                        </tr>
+                        <tr>
+                            <td>透湿性能</td>
+                            <td><strong>22</strong></td>
+                            <td>16</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>外观与结构设计</td>
+                            <td>11</td>
+                            <td>10</td>
+                            <td><strong>26</strong></td>
+                        </tr>
+                        <tr>
+                            <td>亲肤柔软性</td>
+                            <td></td>
+                            <td><strong>37</strong></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>吸湿性能</td>
+                            <td></td>
+                            <td></td>
+                            <td>11</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <h3>2. 贴身或内置衣物类别产品横向对比</h3>
+            <p>本次测试的贴身或内置衣物类别产品包括防晒帽、Surforce防风摇粒绒、羊毛徒步袜共3个产品。总计需要测试的性能包括8项：保暖性能、透气性能、吸湿速干性能、弹力舒适性、亲肤柔软性、防晒性能、外观与结构设计、环保理念。</p>
+            
+            <p>各项性能认可情况：（最大值加粗标记）</p>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>性能认可</th>
+                            <th>速干衣</th>
+                            <th>防晒帽</th>
+                            <th>魔术围巾</th>
+                            <th>羊毛徒步袜</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>保暖性能</td>
+                            <td>53</td>
+                            <td></td>
+                            <td></td>
+                            <td><strong>56</strong></td>
+                        </tr>
+                        <tr>
+                            <td>透气性能</td>
+                            <td>35</td>
+                            <td>35</td>
+                            <td>21</td>
+                            <td><strong>50</strong></td>
+                        </tr>
+                        <tr>
+                            <td>吸湿速干性能</td>
+                            <td><strong>49</strong></td>
+                            <td>21</td>
+                            <td>23</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>弹力舒适性</td>
+                            <td>37</td>
+                            <td></td>
+                            <td></td>
+                            <td>37</td>
+                        </tr>
+                        <tr>
+                            <td>亲肤柔软性</td>
+                            <td><strong>57</strong></td>
+                            <td></td>
+                            <td></td>
+                            <td>32</td>
+                        </tr>
+                        <tr>
+                            <td>防晒性能</td>
+                            <td></td>
+                            <td><strong>44</strong></td>
+                            <td>27</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>环保理念</td>
+                            <td></td>
+                            <td><strong>10</strong></td>
+                            <td>8</td>
+                            <td>6</td>
+                        </tr>
+                        <tr>
+                            <td>外观与结构设计</td>
+                            <td></td>
+                            <td><strong>11</strong></td>
+                            <td>8</td>
+                            <td>7</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <h3>3. 总结</h3>
+            <p>通过横向对比，可以观察测试人员在各个性能上的评估出的表现最优的产品。</p>
+            <p>外套产品类别中，硬壳冲锋衣在防风、防水、超轻性能获得认可最多；Surforce防风摇粒绒在保暖和亲肤柔软性能上获得认可最多；户外登山裤在弹力舒适性、透气性能、外观与结构设计上认可排名靠前。</p>
+            <p>贴身或内置衣物类别中，EOS贴身速干衣在吸湿速干、亲肤柔软性能上获得认可最多；防晒帽在防晒性能获得认可较多，魔术围巾表现相对平均，无特别突出性能；羊毛徒步袜在保暖和透气性能上具有优势。</p>
+            
+            <h2>（五）产品印象与未来期待</h2>
+            
+            <h3>1. 印象深刻的产品</h3>
+            <p>令人印象深刻产品的数量排序为：硬壳冲锋衣（67人）、户外登山裤（51人）、羊毛徒步袜（40人）、Surforce防风摇粒绒（40人）、EOS贴身速干衣（38人）、防晒帽（14人）、魔术围巾（12人）。此外，开放性问题的反馈数量一定程度代表测试人员对7个品类的产品的感兴趣或印象深刻的程度。其中，硬壳冲锋衣（30人）、户外登山裤（26人）、羊毛徒步袜（17人）、Surforce防风摇粒绒（26人）、EOS贴身速干衣（23人）、防晒帽（21人）、魔术围巾（17人）。可以看出，硬壳冲锋衣、户外登山裤和Surforce防风摇粒绒更为受到多数测试人员的关注和重视。</p>
+            
+            <h3>2. 未来测试季节与场景期待</h3>
+            <p>大部分测试人员期待在秋冬季节进行产品测试，且倾向于选择新疆、宁夏等户外环境复杂的地区。这为企业选择产品测试场景提供了方向，有助于在更贴近实际使用环境的条件下检验产品性能。</p>
+            
+            <h3>3. 活动改进建议</h3>
+            <p>测试人员希望无畏极客活动在未来增加更多服装款式选择、提供更详细的产品使用说明、优化活动流程以减少等待时间等，这些建议对活动组织者和产品开发企业改进活动和产品宣传推广具有重要参考价值。</p>
+        </div>
+        
+        <!-- 七、无畏极客大PK——共创方案 -->
+        <div class="section" id="section7">
+            <h1>七、无畏极客大PK——共创方案</h1>
+            
+            <h2>（一）活动基本信息</h2>
+            <div class="feature-box">
+                <div class="feature-title">
+                    <i class="fas fa-users"></i>
+                    <span>活动概况</span>
+                </div>
+                <ul>
+                    <li><strong>活动名称：</strong>无畏极客大PK活动</li>
+                    <li><strong>活动时间：</strong>2025/10/14 15:00</li>
+                    <li><strong>活动地点：</strong>四姑娘山-长坪沟</li>
+                    <li><strong>活动目的：</strong>汇集测试人员意见，获取产品真实体验，集思广益，优化不足</li>
+                    <li><strong>活动内容：</strong>通过分组形式，测试人员对各项测试产品分别进行分析与总结，以共创形式提出改进方案</li>
+                    <li><strong>活动分组：</strong>
+                        <ul>
+                            <li>大峰（1组）：硬壳冲锋衣</li>
+                            <li>二峰（2组）：贴身速干衣+防风摇粒绒</li>
+                            <li>三峰（3组）：户外登山裤</li>
+                            <li>幺妹（4组）：防晒帽+魔术围巾+羊毛徒步袜</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            
+            <h2>（二）改进方案汇总</h2>
+            
+            <div class="feature-box">
+                <div class="feature-title">
+                    <i class="fas fa-mountain"></i>
+                    <span>大峰组：硬壳冲锋衣改进方案</span>
+                </div>
+                <h3>材料</h3>
+                <ul>
+                    <li><strong>优点：</strong>柔软舒适，轻量有弹性，静音内层优化(鱼鳞可持续，无氟环保)</li>
+                    <li><strong>缺点：</strong>不是专业防暴雨级别</li>
+                </ul>
+                <h3>设计结构</h3>
+                <ul>
+                    <li><strong>优点：</strong>版型偏宽松，适用性广，口袋位置和容量合适</li>
+                    <li><strong>缺点：</strong>缺少一个内口袋，魔术贴位置改善，袖型不好看(做立体袖)，可以做一个硬帽沿，辅料优化，前矩后长</li>
+                </ul>
+                <h3>色彩</h3>
+                <ul>
+                    <li><strong>优点：</strong>上色饱和度高</li>
+                    <li><strong>缺点：</strong>缺少反光设计，高饱和撞色</li>
+                </ul>
+            </div>
+            
+            <div class="feature-box">
+                <div class="feature-title">
+                    <i class="fas fa-mountain"></i>
+                    <span>二峰组：贴身速干衣+防风摇粒绒改进方案</span>
+                </div>
+                <h3>贴身速干衣</h3>
+                <ul>
+                    <li><strong>优点：</strong>干爽，不湿冷，速干；亲肤柔软；高颜值，色彩不错；轻便轻量；无异味</li>
+                    <li><strong>缺点：</strong>版型可以再调整(下摆、领口、修身、弹力、厚薄）；多出色彩选择</li>
+                </ul>
+                <h3>防风摇粒绒</h3>
+                <ul>
+                    <li><strong>优点：</strong>防风性好，透气性好；柔软且有弹性；轻量；版型剪裁好，不勒脖；防静电</li>
+                    <li><strong>缺点：</strong>版型可以更时尚；底层绒更蓬松（冬季版)(梭织+膜+摇粒绒.)绒的选择做变化；口袋要有拉链</li>
+                </ul>
+            </div>
+            
+            <div class="feature-box">
+                <div class="feature-title">
+                    <i class="fas fa-mountain"></i>
+                    <span>三峰组：户外登山裤改进方案</span>
+                </div>
+                <ul>
+                    <li><strong>版型：</strong>腰围臀围要针对性别做出细化，腰头设计优化</li>
+                    <li><strong>面料：</strong>防泼水性能还不够，增加弹性</li>
+                    <li><strong>设计：</strong>增加口袋拉链，增加挂钩</li>
+                    <li><strong>优化：</strong>根据中国人的身材数据进行大数据分析和优化设计</li>
+                </ul>
+            </div>
+            
+            <div class="feature-box">
+                <div class="feature-title">
+                    <i class="fas fa-mountain"></i>
+                    <span>幺妹组：防晒帽+魔术围巾+羊毛徒步袜改进方案</span>
+                </div>
+                <h3>防晒帽</h3>
+                <ul>
+                    <li><strong>优点：</strong>帽子可折叠方便收纳；吸湿速干功能；卡眼镜设计好；防晒性能好</li>
+                    <li><strong>缺点：</strong>版型不够好，深度不够；调节卡扣不舒适；建议采用超轻材质</li>
+                </ul>
+                <h3>魔术围巾</h3>
+                <ul>
+                    <li><strong>优点：</strong>双面印花质感好；双面结构，速干凉感+保暖好</li>
+                    <li><strong>缺点：</strong>接口细节需更人性化；可增加挂耳设计，加鼻贴片</li>
+                </ul>
+                <h3>羊毛徒步袜</h3>
+                <ul>
+                    <li><strong>优点：</strong>舒适度高，吸湿干爽；羊毛含量高，不刺痒，防臭</li>
+                    <li><strong>缺点：</strong>毛圈大小进行细分；增加不同场景的结构设计</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- 八、结论与建议 -->
+        <div class="section" id="section8">
+            <h1>八、结论与建议</h1>
+            
+            <h2>（一）结论</h2>
+            <ol>
+                <li>产品在性能、功能结构设计、环保理念、尺码和舒适度等方面存在不同程度的优势与不足，需做出具有针对性的优化。</li>
+                <li>测试人员对功能性服装需求丰富且强烈，尤其关注保暖、透气、吸湿速干等性能，以及户外场景服装的防风防水需求。</li>
+                <li>活动组织和产品宣传推广环节有待改进，以提升测试人员的参与体验。</li>
+            </ol>
+            
+            <h2>（二）建议</h2>
+            <ol>
+                <li><strong>核心性能提升：</strong>主要基于春秋季户外运动场景，围绕防风防水、保暖、吸湿速干三方面提升性能，包括加强防风防水技术研发，探索新型多功能材料；强化保暖性能测试与改进，针对户外服装制定更高标准；改进吸湿速干性能，提高服装在不同场景下的干爽舒适度。</li>
+                <li><strong>产品设计优化：</strong>提升面料品质，平衡各项性能，如研发更先进的防水透气面料；注重外观与结构设计创新，融入更多人性化、时尚化元素；完善尺码体系，根据不同身材数据优化版型。</li>
+                <li><strong>环保与宣传：</strong>将环保理念融入产品开发全过程，选用可降解可循环材料，采用绿色生产工艺；加强产品环保宣传，让测试人员更好地了解产品环保优势。</li>
+                <li><strong>活动与产品推广结合：</strong>优化活动方案，根据测试人员反馈调整活动流程，增加活动吸引力、趣味性和互动性；在活动中加强多个维度的产品体验，提高测试人员对产品性能和特点的认知度。</li>
+            </ol>
+        </div>
+        
+    </div>
+    
+    <!-- 页脚 -->
+    <div class="footer">
+        <p>中国纺织信息中心 • 纺织服装供应链研究院</p>
+        <p>本报告内容仅供参考，未经许可不得转载</p>
+    </div>
+</body>
+</html>
